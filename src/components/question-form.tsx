@@ -18,6 +18,7 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 import { Textarea } from '@/components/ui/textarea'
+import { useCreateQuestion } from '@/http/use-create-question'
 
 const createQuestionSchema = z.object({
   question: z
@@ -34,6 +35,9 @@ interface QuestionFormProps {
 }
 
 export function QuestionForm({ roomId }: QuestionFormProps) {
+
+  const { mutateAsync: createQuestion } = useCreateQuestion(roomId)
+
   const form = useForm<CreateQuestionFormData>({
     resolver: zodResolver(createQuestionSchema),
     defaultValues: {
@@ -41,9 +45,13 @@ export function QuestionForm({ roomId }: QuestionFormProps) {
     },
   })
 
-  function handleCreateQuestion(data: CreateQuestionFormData) {
-    console.log(data, roomId)
+
+
+  async function handleCreateQuestion(data: CreateQuestionFormData) {
+    await createQuestion(data)
   }
+
+  const { isSubmitting } = form.formState
 
   return (
     <Card className="bg-zinc-950 text-white border border-zinc-700">
@@ -67,6 +75,7 @@ export function QuestionForm({ roomId }: QuestionFormProps) {
                   <FormLabel className="text-white">Sua Pergunta</FormLabel>
                   <FormControl>
                     <Textarea
+                      disabled={isSubmitting}
                       className="min-h-[100px] bg-zinc-900 border border-zinc-600 text-white placeholder-zinc-500 focus:ring-zinc-500 focus:border-zinc-500"
                       placeholder="O que você gostaria de saber?"
                       {...field}
@@ -78,6 +87,7 @@ export function QuestionForm({ roomId }: QuestionFormProps) {
             />
 
             <Button
+              disabled={isSubmitting}
               type="submit"
               className="bg-white text-black hover:bg-zinc-400 "
             >
