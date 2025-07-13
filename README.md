@@ -1,69 +1,54 @@
-# React + TypeScript + Vite
+# 🚀 Projeto Rocketseat-front - Let me ask com Ia
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Projeto desenvolvido durante um evento da **Rocketseat** para demonstrar o uso de **agentes inteligentes na web**, com algumas melhorias e extras adicionados por mim.
+Esse projeto tem como função criar salas para que outras pessoas possam e criar perguntas sendo respondidas por uma Ia que tem o conteudo da sala armazenado.
 
-Currently, two official plugins are available:
+## 🚀 Tecnologias
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React 19.1** – Biblioteca para interfaces de usuário
+- **TypeScript 5.8** – Superset do JavaScript com tipagem estática
+- **Vite 7.0** – Build tool e servidor de desenvolvimento rápido
+- **TailwindCSS 4.1** – Framework CSS utility-first
+- **React Router Dom 7.6** – Roteamento declarativo
+- **TanStack React Query 5.8** – Gerenciamento de estado do servidor e cache
+- **Radix UI** – Componentes primitivos acessíveis e reutilizáveis
+- **Shadcn/ui** – Sistema de componentes moderno baseado em Radix
+- **Lucide React** – Biblioteca de ícones em SVG
 
-## Expanding the ESLint configuration
+## 📂 Padrões de Projeto
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Component-based Architecture** – Arquitetura baseada em componentes reutilizáveis
+- **File-based Routing** – Roteamento baseado em arquivos com React Router
+- **Server State Management** – Gerenciamento de estado do servidor com React Query
+- **Variant-based Components** – Uso de variantes com `class-variance-authority (CVA)`
+- **Composition Pattern** – Composição de componentes com `Radix Slot`
+- **Path Aliasing** – Atalhos de importação (`@/` aponta para `src/`)
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## ⚙️ Configuração do Projeto
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+### Pré-requisitos
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Node.js (versão 18 ou superior)
+- npm ou yarn
+
+### Instalação
+
+Clone o repositório e instale as dependências:
+
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Execute o servidor de desenvolvimento:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+## 🖥️ Backend
+Link para o backend: https://github.com/Breno-Lira/Rocketseat-back
+
+
+
+
+
